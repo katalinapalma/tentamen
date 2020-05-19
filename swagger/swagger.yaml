@@ -111,6 +111,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseBook'
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBook'
+        '204':
+          description: Valid request but there is no content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBook'
         default:
           description: unexpected error
           content:  
