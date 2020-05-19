@@ -126,7 +126,7 @@ paths:
       - name: bookId
         in: path
         required: true
-        description: Deletes the student
+        description: Deletes the book
         schema:
           type: string
       responses:
