@@ -3,6 +3,17 @@ get = (req, res, next) => {
       return res.send(books);
     }).catch((error) => next(error))
 };
+// get = (req, res, next) => {
+//   let query;
+//   if(req.query.title) {
+//     query = req.models.Book.findOne({title: req.query.title})
+//   } else {
+//     query = req.models.Book.find()
+//   }
+//   query.exec()
+//     .then(books => res.send(books))
+//     .catch(error => next(error));
+// };
 
 getBookById = (req, res, next) => {
   req.models.Book.findById(req.params.id).then((book) => {
@@ -31,8 +42,19 @@ postBook = (req, res, next) => {
   })
 };
 
+deleteBookById = (req, res, next) => {
+  req.models.Book.findByIdAndDelete(
+    req.params.id
+  ).then((book) => {
+    if(book)
+      return res.status(200).send(`${book.title} has been deleted`)
+      res.sendStatus(204) 
+  }).catch(error => next(error))
+};
+
 module.exports = {
   get,
   getBookById,
   postBook,
+  deleteBookById,
 }

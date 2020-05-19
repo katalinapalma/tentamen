@@ -6,5 +6,6 @@ const book = require('./book.js');
 router.get("/books", book.get)
 router.get("/books/:id", book.getBookById);
 router.post("/books", book.postBook);
+router.delete("/books/:id", book.deleteBookById);
 
-module.exports = router
+module.exports = router;
